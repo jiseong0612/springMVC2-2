@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import hello.itemservice.domain.item.Item;
 import hello.itemservice.domain.item.ItemRepository;
+import hello.itemservice.domain.item.ItemType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,6 +33,12 @@ public class FormItemController {
 		regions.put("JEJU", "제주");
 		return regions;
 	}
+	
+	@ModelAttribute("itemTypes")
+	public  ItemType[] itemType() {
+		return ItemType.values();
+	}
+	
 
 	private final ItemRepository itemRepository;
 
